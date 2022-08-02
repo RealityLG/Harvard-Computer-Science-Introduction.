@@ -1,0 +1,89 @@
+#include "helpers.h"
+#include <math.h>
+#include <stdio.h>
+// Convert image to grayscale
+void grayscale(int height, int width, RGBTRIPLE image[height][width])
+{
+    int var_1;
+    int var_2;
+    int var_3;
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            var_1 = image[i][x].rgbtRed;
+            var_2 = image[i][x].rgbtBlue;
+            var_3 = image[i][x].rgbtGreen;
+
+            float var_4 = (var_1 + var_2 + var_3) /3.0;
+            int var_5 = round(var_4);
+
+            image[i][x].rgbtRed = var_5;
+            image[i][x].rgbtBlue = var_5;
+            image[i][x].rgbtGreen = var_5;
+        }
+    }
+    return;
+}
+
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width])
+{
+    int sred;
+    int sgre;
+    int sblu;
+    for(int i = 0; i < height; i++)
+    {
+        for(int x = 0; x < width; x++)
+        {
+
+            sred = 0;
+            sgre = 0;
+            sblu = 0;
+
+            sred = round(image[i][x].rgbtRed * 0.393 + image[i][x].rgbtGreen * 0.769 + image[i][x].rgbtBlue * 0.189);
+
+            sgre = round(image[i][x].rgbtRed * 0.349 + image[i][x].rgbtGreen * 0.686 + image[i][x].rgbtBlue * 0.168);
+
+            sblu = round(image[i][x].rgbtRed * 0.272 + image[i][x].rgbtGreen * 0.534 + image[i][x].rgbtBlue * 0.131);
+
+           if(sred > 255) sred = 255;
+           if(sgre > 255) sgre = 255;
+           if(sblu > 255) sblu = 255;
+
+            image[i][x].rgbtRed = sred;
+            image[i][x].rgbtGreen = sgre;
+            image[i][x].rgbtBlue = sblu;
+
+        }
+    }
+    return;
+}
+
+// Reflect image horizontally
+void reflect(int height, int width, RGBTRIPLE image[height][width])
+{
+    RGBTRIPLE l[height][width];
+
+   for (int h = 0; h < height; h++)
+    {
+        for (int w = 0; w < width/2; w++)
+        {
+            l[h][w] = image[h][w];
+            image[h][w]         = image[h][width-1-w];
+            image[h][width-1-w] = l[h][w];
+        }
+
+    }
+
+
+
+    return;
+}
+
+// Blur image
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+    return;
+}
