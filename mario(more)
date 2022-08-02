@@ -1,0 +1,48 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    //asking user for the height of the stair
+    int n;
+    do
+    {
+        n = get_int("Which height should the stair have (1-8):\n");
+    }
+    while (n < 1 || n > 8);
+
+    int i = 0;
+//making the floors of the stair
+    while (i < n)
+    {
+        int f = n - i;
+        int g = 1;
+//making the spaces for the floor
+        while (g < f)
+        {
+            printf(" ");
+            f--;
+        }
+
+        i++;
+        int p = 0;
+//making material for the floor
+        while (p < i)
+        {
+            printf("#");
+            p++;
+        }
+//making the space between stair
+        printf("  ");
+//making other side of stair
+        p = 0;
+        while (p < i)
+        {
+            printf("#");
+            p++;
+        }
+//going in the next line
+        printf("\n");
+    }
+}
