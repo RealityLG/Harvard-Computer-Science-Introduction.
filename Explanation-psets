@@ -1,0 +1,95 @@
+pset 1 --- mario(less/more)
+           The task in Mario(less) was to create an ascending staircase. 
+           
+           The requirements:
+           - The ascending staircase may only have a height of 8 stones.
+           - A stone should be represented by a "#" symbol.
+           - If the user makes an input that is not allowed, the program should ask again for the height.
+           
+           The task in Mario(more) was to create an ascending and a descending staircase. There should be a gap between the stairs.
+           
+           The requirements:
+           - The ascending/descending staircase can only have a height of 8 stones.
+           - A stone should be represented by a "#" symbol.  
+           - The gap should have a length of two stones.
+           - If the user makes an input that is not allowed, the program shall ask again for the height.
+           
+ 
+ psets 2 --- scrabble
+             The task was to calculate the user's input and print the winner. To determine the winner, each letter was given a value.
+             The player with the most points wins. If both have the same number of points, the program should print a tie.
+            
+              A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+              1 3 3 2 1 4 2 4 1 8 5 1 3 1 1 3 10 1 1 1 1 4 4 8 4 10
+         
+         --- Readability
+             The task was to calculate the level of the text (input).
+
+             To calculate the level, the following equation was obtained --> index = 0.0588 * L - 0.296 * S - 15.8
+             "S" stands for the average number of sentences per 100 words and "L" for the average number of letters per 100 words. 
+             To solve this task, you need to scan the text and calculate the average and the index.
+             As output, you should print the grade.
+         
+         --- caear
+             Caeser is a cipher that encrypts only letters. The calculation for the encrypted letter is based on
+             an input (number) of the user. This input is for the shift. Example: Shift = 1 A -> B g -> h
+             The output should be printed with plain text: ....
+             To get the shift(key) you have to write it after the start command ./caesar [key].
+
+ 
+ psets 3 --- plurality
+             Plurality is a program that calculates the winner of an election.
+             
+             The requirements:
+             -Maximum number of candidates in an election is 9.
+             -If there is an invalid vote, it should not be counted.
+             -The output is the winner(s) with the most votes.
+             -There is no tie in this election, i.e. all winners should appear in the issue.
+             
+         --- Runoff election
+              Runoff voting is also a program that determines the winner of an election.
+              The difference with plurality is that you have a list in which you can enter your first, second, third ... ...
+              This means that in this election there will be only one winner. To calculate the winner, you have to calculate all the first votes.
+               Then the candidate with the fewest votes is eliminated. All the second votes of the eliminated candidate will be
+              counted and so on. The winner needs more than 50% of all votes. When this condition is fulfilled, the winner is printed and the program should be 
+              should be finished.
+              
+ psets 4 --- volume 
+             This program should change an audio file only by a certain factor (input)
+             Example: Audio1.0 --> Factor: 2x --> Audio2.0 is twice as loud as Audio1.0
+ 
+         --- Filter (--------------not finished------------------)
+             The task is to program 4 different filters.
+             1. grayscale
+             2. sepia
+             3. mirror
+             4. blur
+             
+             For the first filter you have to calculate for each pixel how much green, red, blue it needs for the right shade of gray.
+             The calculation is (green + red + blue) / 3, because you need the average.
+             
+             For sepia:
+             sepiaRed = .393 * originalRed + .769 * originalGreen + .189 * originalBlue
+             sepiaGreen = .349 * originalRed + .686 * originalGreen + .168 * originalBlue
+             sepiaBlue = .272 * originalRed + .534 * originalGreen + .131 * originalBlue
+             
+             for mirror:
+             The image should be mirrored sideways, i.e. the last pixel in the first row is the first pixel in the new image, etc.
+             
+             for blur:
+             The color for the pixel is the average of all pixels around the pixel and the pixel, which should be changed.
+
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
