@@ -1,0 +1,76 @@
+  #include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int main(int argc, string argv[])
+{
+    //looking if list argv is longer as 1
+    if (argc > 2 || argc < 2)
+    {
+        printf("Usage: ./caesar key\n");
+        return 1;
+        exit(0);
+    }
+
+    int x = 0;
+
+    string i = argv[1];
+    x = strlen(i);
+    int p = 0;
+
+    //looking for if i(argv[1]) has only numbers
+    while (p < x)
+    {
+        int q = i[p];
+        if (q < 48 || q > 57)
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+            exit(0);
+        }
+        p++;
+    }
+
+
+    //i (string) = argv[1]
+    //x is string length
+    // making postponement
+    int pswd = atoi(i);
+
+    //getting text
+    string text = get_string("plaintext:  ");
+
+
+    p = 0;
+    int l = strlen(text);
+    string output = text;
+    //encrypt letters
+    while (p < l)
+    {
+        int let = text[p];
+
+        if ((let < 91 && let > 64) || (let < 123 && let > 96))
+        {
+            while (pswd > 25)
+            {
+                pswd = pswd - 26;
+            }
+            let = let + pswd;
+            if (let > 122)
+            {
+                let = let - 122 + 96;
+            }
+        }
+
+        output[p] = let;
+        p++;
+    }
+    printf("ciphertext: %s\n", output);
+
+    return 0;
+
+
+}
+
