@@ -58,7 +58,7 @@ pset 1 --- mario(less/more)
              This program should change an audio file only by a certain factor (input)
              Example: Audio1.0 --> Factor: 2x --> Audio2.0 is twice as loud as Audio1.0
  
-         --- Filter (--------------not finished------------------)
+         --- Filter 
              The task is to program 4 different filters.
              1. grayscale
              2. sepia
