@@ -78,6 +78,13 @@ pset 1 --- mario(less/more)
              
              for blur:
              The color for the pixel is the average of all pixels around the pixel and the pixel, which should be changed.
+         
+         --- recover
+             This project is for recreating deleted files from a photo hard disk
+             
+             The task was to find the beginning of a jpeg and then read it to the end
+             After reading you have to create a new file starting with 000.jpg and for 
+             further jpeg's continues with 001.jpd ...
 
          
          
