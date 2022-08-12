@@ -1,0 +1,73 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdint.h>
+#include <cs50.h>
+
+int main(int argc, char *argv[])
+{
+    //opening and creating new file
+    FILE *file = fopen(argv[1], "r");
+    FILE *img = NULL;
+    //checking if the starting comment is correct
+    if (argc != 2)
+    {
+        printf("Usage: ./recover IMAGE");
+        return 1;
+    }
+
+    if (file == NULL)
+    {
+        printf("Usage: ./recover card.raw");
+        return 1;
+    }
+
+    typedef uint8_t BYTE;
+    BYTE BLOCK[512];
+    int le;
+    char filename[8];
+    int r = 0;
+
+
+    while (true)
+    {
+        le = fread(BLOCK, sizeof(BYTE), 512, file);
+        //looking if there is a start from jpeg
+        if (BLOCK[0] == 0xff && BLOCK[1] == 0xd8 && BLOCK[2] == 0xff && ((BLOCK[3] & 0xf0) == 0xe0))
+
+            if (r == 0)
+            {
+                //create a new file, for the first start at all
+                sprintf(filename, "%03i.jpg", r);
+                img = fopen(filename, "w");
+                fwrite(BLOCK, sizeof(BYTE), le, img);
+                r++;
+            }
+            else
+            {
+                //creating new file, if it is not the first start (line 35)
+                fclose(img);
+                sprintf(filename, "%03i.jpg", r);
+                img = fopen(filename, "w");
+                fwrite(BLOCK, sizeof(BYTE), le, img);
+                r++;
+            }
+
+        //it there is no start, the program should continue to read
+        else if (r != 0)
+        {
+            //writing the image
+            fwrite(BLOCK, sizeof(BYTE), le, img);
+            //if there is the end of the file the program will be stop
+            if (le == 0)
+            {
+                fclose(img);
+                fclose(file);
+                return 0;
+            }
+        }
+    }
+    //closing all remaining files
+    fclose(img);
+    fclose(file);
+
+}
