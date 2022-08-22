@@ -85,9 +85,19 @@ pset 1 --- mario(less/more)
              The task was to find the beginning of a jpeg and then read it to the end
              After reading you have to create a new file starting with 000.jpg and for 
              further jpeg's continues with 001.jpd ...
+           
+ psets5 --- inheritance
+            
+         Simulate the inheritance of blood types for each member of a family.
 
-         
-         
+           Child (Generation 0): blood type OO
+               Parent (Generation 1): blood type AO
+                   Grandparent (Generation 2): blood type OA
+                   Grandparent (Generation 2): blood type BO
+               Parent (Generation 1): blood type OB
+                   Grandparent (Generation 2): blood type AO
+                   Grandparent (Generation 2): blood type BO
+
          
          
          
